@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une Soutenance{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Modifier une Soutenance</h1>
+
+        <div class="card shadow p-4">
+            {{ include('soutenance/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{{ path('app_soutenance_index') }}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Retour à la liste
+            </a>
+            {{ include('soutenance/_delete_form.html.twig', { 'attr': { 'class': 'd-inline' } }) }}
+        </div>
+    </div>
+{% endblock %}

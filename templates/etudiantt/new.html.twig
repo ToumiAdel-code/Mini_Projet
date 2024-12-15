@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouvel Étudiant{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Créer un nouvel Étudiant</h1>
+
+        <div class="card shadow p-4">
+            {{ include('etudiantt/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+        </div>
+
+        <div class="text-end mt-3">
+            <a href="{{ path('app_etudiantt_index') }}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Retour à la liste
+            </a>
+        </div>
+    </div>
+{% endblock %}

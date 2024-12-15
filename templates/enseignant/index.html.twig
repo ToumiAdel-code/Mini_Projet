@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Enseignants{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Liste des Enseignants</h1>
+
+        <div class="text-end mb-3">
+            <a href="{{ path('app_enseignant_new') }}" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Ajouter un enseignant
+            </a>
+        </div>
+
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Matricule</th>
+                <th scope="col" class="text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for enseignant in enseignants %}
+                <tr>
+                    <td>{{ enseignant.id }}</td>
+                    <td>{{ enseignant.nom }}</td>
+                    <td>{{ enseignant.prenom }}</td>
+                    <td>{{ enseignant.matricule }}</td>
+                    <td class="text-center">
+                        <a href="{{ path('app_enseignant_show', {'id': enseignant.id}) }}" class="btn btn-primary btn-sm me-1">
+                            <i class="bi bi-eye"></i> Voir
+                        </a>
+                        <a href="{{ path('app_enseignant_edit', {'id': enseignant.id}) }}" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil"></i> Modifier
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">Aucun enseignant trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
